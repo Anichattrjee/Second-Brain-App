@@ -10,10 +10,10 @@ app.use(express.json());
 
 
 //routes
-app.use("/api/auth",authRouter);
+app.use("/api/v1/auth",authRouter);
 
 app.listen(port,async ()=>{
-
+    
     console.log(`Server running on port : ${port}...`);
     await connectDB();
 });

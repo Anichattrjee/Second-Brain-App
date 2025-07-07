@@ -8,7 +8,11 @@ export const signup = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  
+  const existingUser=await User.find({email});
+  if(existingUser)
+  {
+    return res.status(400).json("User already exists");
+  }
   //generate the random avatar
   const rn=Math.floor(Math.random()*100)+1;
   
